@@ -1,8 +1,26 @@
-node {
-stage('SCM Checkout'){
-git 'https://github.com/aniketbandal/registration-login-spring-xml-maven-jsp-mysql'
-}
-stage('Compile-Package'){
-sh 'mvn package'
-}
+pipeline{
+    agent any
+  tools {
+      maven 'maven'
+  }
+    stages {
+        stage('compile stage')
+        {
+            steps{
+            bat "mvn clean compile"
+            }
+        }
+        stage('test stage')
+        {
+            steps{
+            bat "mvn test"
+            }
+        }
+        stage('package stage')
+        {
+            steps{
+            bat "mvn package"
+            }
+        }
+    }
 }
