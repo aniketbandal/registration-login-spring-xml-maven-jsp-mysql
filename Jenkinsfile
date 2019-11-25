@@ -22,12 +22,8 @@ pipeline{
             bat "mvn package"
             }
         }
-             stage('deploy on browser stage')
-        {
-            steps{
-            bat "Move C:\Program Files (x86)\Jenkins\workspace\testpipeline\target\account-1.0-SNAPSHOT  C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\"
-            }
-        }
+ 
+  
             
     }
     
